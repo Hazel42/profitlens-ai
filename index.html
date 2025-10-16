@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProfitLens AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-primary': '#00A896',
+              'brand-secondary': '#02C39A',
+              'brand-light': '#F0F3F4',
+              'brand-dark': '#05668D',
+              'alert-red': '#EF4444',
+              'warning-yellow': '#FBBF24',
+              'safe-green': '#10B981',
+              'gray-800': '#1F2937',
+              'gray-700': '#374151',
+              'gray-600': '#4B5563',
+              'gray-900': '#111827',
+            },
+          }
+        }
+      }
+    </script>
+    <style>
+      #root {
+        height: 100%;
+      }
+      @keyframes slide-in-bottom-right {
+        0% {
+          transform: translate(100px, 100px);
+          opacity: 0;
+        }
+        100% {
+          transform: translate(0, 0);
+          opacity: 1;
+        }
+      }
+      .animate-slide-in-bottom-right {
+        animation: slide-in-bottom-right 0.3s ease-out forwards;
+      }
+      
+      @keyframes fade-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      .animate-fade-in {
+        animation: fade-in 0.3s ease-out forwards;
+      }
+
+      @keyframes fade-in-down {
+          from {
+              opacity: 0;
+              transform: translate3d(0, -20px, 0);
+          }
+          to {
+              opacity: 1;
+              transform: translate3d(0, 0, 0);
+          }
+      }
+      .animate-fade-in-down {
+          animation: fade-in-down 0.3s ease-out forwards;
+      }
+
+      /* Shimmer animation for Skeleton Loaders */
+      @keyframes shimmer {
+        0% {
+          background-position: -1000px 0;
+        }
+        100% {
+          background-position: 1000px 0;
+        }
+      }
+      .animate-shimmer {
+        animation: shimmer 2s infinite linear;
+        background: linear-gradient(to right, #4B5563 8%, #6B7280 18%, #4B5563 33%);
+        background-size: 2000px 100%;
+      }
+
+
+      /* For chat scrollbar */
+      .chat-messages::-webkit-scrollbar {
+        width: 8px;
+      }
+      .chat-messages::-webkit-scrollbar-track {
+        background: #111827; /* gray-900 */
+      }
+      .chat-messages::-webkit-scrollbar-thumb {
+        background-color: #4b5563; /* gray-600 */
+        border-radius: 4px;
+        border: 2px solid #111827; /* gray-900 */
+      }
+
+      /* Print styles for Purchase Order */
+      @media print {
+        body * {
+          visibility: hidden;
+        }
+        #purchase-order, #purchase-order * {
+          visibility: visible;
+        }
+        #purchase-order {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          color: black !important;
+          background-color: white !important;
+        }
+        .no-print {
+          display: none !important;
+        }
+        .print-text-black {
+          color: black !important;
+        }
+        .print-bg-white {
+          background-color: white !important;
+        }
+        .print-border-gray {
+           border-color: #D1D5DB !important;
+        }
+      }
+  </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.24.0",
+    "chart.js": "https://aistudiocdn.com/chart.js@^4.5.1"
+  }
+}
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-gray-900 h-full">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
